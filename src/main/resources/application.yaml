@@ -1,0 +1,28 @@
+server:
+  port: 7070
+  servlet:
+    contextPath: /client
+security:
+  oauth2:
+    client:
+      guest-read:
+        client-id: MY_NEW_APP
+        client-secret: sagar
+        grant-type: authorization_code
+        scope: guest.read
+        access-token-uri: http://localhost:7777/auth-server/oauth/token
+        user-authorization-uri: http://localhost:7777/auth-server/oauth/authorize
+        pre-established-redirect-uri: http://localhost:7070/client/guest
+        use-current-uri: false
+      user-read:
+        client-id: MY_NEW_APP
+        client-secret: sagar
+        grant-type: authorization_code
+        scope: user.read
+        access-token-uri: http://localhost:7777/auth-server/oauth/token
+        user-authorization-uri: http://localhost:7777/auth-server/oauth/authorize
+        pre-established-redirect-uri: http://localhost:7070/client/user
+        use-current-uri: false
+
+users:
+  base-uri: http://localhost:7777/auth-server/users/
